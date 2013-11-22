@@ -28,6 +28,8 @@ gem 'padrino', '0.11.4'
 gem 'pg'
 gem 'magic_encoding'
 gem 'annotate'
+gem 'wiselinks'
+gem 'groupdate'
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 

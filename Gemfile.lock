@@ -18,6 +18,8 @@ GEM
     bcrypt-ruby (3.1.2-x86-mingw32)
     builder (3.0.4)
     erubis (2.7.0)
+    groupdate (1.0.4)
+      activerecord (>= 3.0.0)
     http_router (0.11.0)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
@@ -84,6 +86,7 @@ GEM
     tzinfo (0.3.38)
     url_mount (0.2.1)
       rack
+    wiselinks (1.1.2)
 
 PLATFORMS
   x86-mingw32
@@ -93,6 +96,7 @@ DEPENDENCIES
   annotate
   bcrypt-ruby
   erubis (~> 2.7.0)
+  groupdate
   magic_encoding
   padrino (= 0.11.4)
   pg
@@ -100,3 +104,4 @@ DEPENDENCIES
   rake
   sass
   shoulda
+  wiselinks

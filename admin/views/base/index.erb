@@ -1,6 +1,7 @@
 <div class="row-fluid">
 
   <div class="col-md-7">
+    <h1>Histórico</h1>
     <table class="table table-bordered table-hover">
       <tr>
         <th><%= t('pin') %></th>
@@ -17,8 +18,8 @@
     </table>
   </div>
 
-  <div class="col-md-5" style="border: 1px solid black;">
-    <table class="table table-hover">
+  <div class="col-md-5" style="border: 1px solid black;" id="home-table">
+    <table class="table table-hover ">
       <tr>
         <h2>Rendimento</h2>
       </tr>
@@ -28,9 +29,31 @@
         <th>Mês</th>
       </tr>
       <tr>
-        <th><h2><%= number_to_currency(38) %></h2></th>
+        <th><h2><%= number_to_currency(ParkingHistory.day_trade) %></h2></th>
+        <th><h2><%= number_to_currency(ParkingHistory.day_trade) %></h2></th>
         <th><h2><%= number_to_currency(200) %></h2></th>
-        <th><h2><%= number_to_currency(200) %></h2></th>
+      </tr>
+    </table>
+    <br>
+    <table class="table table-hover">
+      <tr>
+        <h2>Cartões Utilizados</h2>
+      </tr>
+       <tr>
+        <th>Dia</th>
+        <th></th>
+        <th>Semana</th>
+        <th></th>
+        <th>Mês</th>
+        <th></th>
+      </tr>
+      <tr>
+          <td>Mensalista</td>
+          <td>Não Mensalista</td>
+          <td>Mensalista</td>
+          <td>Não Mensalista</td>
+          <td>Mensalista</td>
+          <td>Não Mensalista</td>
       </tr>
     </table>
   </div>
