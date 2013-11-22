@@ -1,3 +1,19 @@
+# -*- encoding : utf-8 -*-
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  surname          :string(255)
+#  email            :string(255)
+#  crypted_password :string(255)
+#  role             :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# -*- encoding : utf-8 -*-
 class Account < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
 

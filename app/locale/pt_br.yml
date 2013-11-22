@@ -1,56 +1,48 @@
 pt_br:
-  padrino:
-    admin:
-      login:
-        title: "Login"
-        email: "Email"
-        password: "senha"
-        bypass: "Ignorar login?"
-        sign_in: "Entre"
-        error: "E-mail ou senha errada."
-      save: "Salvar"
-      save_and_continue: "Salvar e continuar"
-      cancel: "Cancelar"
-      list: "Lista"
-      edit: "Editar"
-      new: "Novo"
-      show: "Show"
-      delete: "Excluir"
-      confirm: "Você tem certeza?"
-      created_at: "Criado em"
-      all: "Todos"
-      profile: "Editar seu perfil"
-      settings: "Configurações"
-      logout: "Sair do administrador"
-      select_all: "Selecionar Tudo"
-      deselect_all: "Desmarcar Todos"
-      delete_selected: "Excluir selecionados"
-      delete_selected_title: "Tem certeza de que deseja excluir todos os itens selecionados?"
-      example: "Ex: um texto simples"
-      new_title: "New %{model}"
-      create_title: "Edição %{model}"
-      create_success: "%{model} foi criado com sucesso."
-      create_error: "Não foi possível criar o %{model}"
-      edit_title: "Edição %{model}"
-      edit_warning: "Não foi possível encontrar o %{model} com ID %{id}."
-      update_title: "Edição %{model}"
-      update_success: "%{model} com ID %{id} foi atualizado com sucesso."
-      update_error: "Não foi possível atualizar o %{model}."
-      update_warning: "Não foi possível encontrar o %{model} com ID %{id}"
-      delete_title: "Excluir %{model}?"
-      delete_success: "%{model} com ID %{id} foi excluído com sucesso."
-      delete_error: "Não foi possível apagar %{model}!"
-      delete_warning: "Não foi possível encontrar o %{model} com ID %{id}."
-      destroy_many_error: "Você deve selecionar pelo menos um %{model} excluir."
-      destroy_many_success: "%{model} %{ids} foram apagados com sucesso."
-      custom_errors:
-        title: "Erro"
-        '403':
-          title: "Erro 403"
-          description: "proibido"
-        '404':
-          title: "Erro 404"
-          description: "não encontrado"
-        '500':
-          title: "Erro 500"
-          description: "Erro de servidor"
+  parameters: Parametros
+  parking_cost_histories: Historico dos Preços
+  enroll_cards: Cartões
+  card_types: Tipos dos Cartão
+  accounts: Contas
+  parking_histories: 'Historico do Estacionamento'
+  entry_time: 'Entrada'
+  exit_time: 'Saida'
+  pin: 'Pin'
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+      only_day: "%e"
+
+    day_names: [Domingo, Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sab]
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Maio, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    order:
+      - day
+      - month
+      - year
+
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+      only_second: "%S"
+
+      datetime:
+        formats:
+          default: "%d-%m-%YT%H:%M:%S%Z"
+
+    am: 'am'
+    pm: 'pm'
+
+  support:
+    array:
+      sentence_connector: "e"
+      skip_last_comma: false

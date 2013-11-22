@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Estacionamento::Admin.controllers :parking_cost_histories do
   get :index do
     @title = "Parking_cost_histories"

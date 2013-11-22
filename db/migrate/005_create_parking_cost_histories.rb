@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateParkingCostHistories < ActiveRecord::Migration
   def self.up
     create_table :parking_cost_histories do |t|

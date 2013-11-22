@@ -1,9 +1,9 @@
 pt_br:
   models:
     parking_cost_history:
-      name: Parking cost history
+      name: Histórico de Preços
       attributes:
         id: Id
-        date: Date
-        parking_cost: Parking cost
-        card_type: Card type
+        date: Data
+        parking_cost: Custo
+        card_type: Tipo de Cartão

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Estacionamento
   class Admin < Padrino::Application
     use ActiveRecord::ConnectionAdapters::ConnectionManagement
@@ -37,6 +38,7 @@ module Estacionamento
     role.project_module :parking_cost_histories, '/parking_cost_histories', as: 'Historico de Preço'
     role.project_module :parameters, '/parameters'
     role.project_module :enroll_cards, '/enroll_cards'
+    role.project_module :parking_histories, '/parking_histories'
     role.project_module :card_types, '/card_types'
     role.project_module :accounts, '/accounts'
     end

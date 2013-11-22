@@ -1,0 +1,11 @@
+pt_br:
+  models:
+    parking_history:
+      name: Historico de Estacionamento
+      attributes:
+        id: Id
+        dh_ins: Hora de Inserção
+        card: Cartão
+        dt_time_in: Entrada
+        dt_time_out: Saida
+        user: Usuário

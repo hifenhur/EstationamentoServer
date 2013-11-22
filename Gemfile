@@ -27,6 +27,7 @@ gem 'rack-test', :require => 'rack/test', :group => 'test'
 gem 'padrino', '0.11.4'
 gem 'pg'
 gem 'magic_encoding'
+gem 'annotate'
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 

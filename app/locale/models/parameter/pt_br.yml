@@ -1,6 +1,6 @@
 pt_br:
   models:
     parameter:
-      name: Parameter
+      name: Parametro
       attributes:
         id: Id

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ScssInitializer
   def self.registered(app)
     # Enables support for SCSS template reloading in rack applications.

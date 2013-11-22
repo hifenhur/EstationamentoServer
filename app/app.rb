@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Estacionamento
   class App < Padrino::Application
     register ScssInitializer

@@ -39,6 +39,7 @@
                 <th class=header> <%= mat(:parking_cost_history, :id) %></th>
                 <th class=header> <%= mat(:parking_cost_history, :date) %></th>
                 <th class=header> <%= mat(:parking_cost_history, :parking_cost) %></th>
+                <th class=header> <%= mat(:parking_cost_history, :card_type) %></th>
                 <th class="header list-row-action-header"></th>
     </thead>
 
@@ -50,7 +51,8 @@
            </td>
           <td class=list-column> <%= parking_cost_history.id %> </td>
           <td class=list-column> <%= parking_cost_history.date %> </td>
-          <td class=list-column> <%= parking_cost_history.parking_cost %> </td>
+          <td class=list-column> <%= parking_cost_history.parking_cost.round(2) %> </td>
+          <td class=list-column> <%= parking_cost_history.card_type %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
                <%= link_to tag_icon(:edit), :href => url(:parking_cost_histories, :edit, :id => parking_cost_history.id), :rel => :tooltip, :title => "#{pat(:edit)} parking_cost_history", :class => 'list-row-action-wrapper-link' %>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Estacionamento::Admin.controllers :sessions do
   get :new do
     render "/sessions/new", nil, :layout => false

@@ -1,5 +1,10 @@
 pt_br:
   padrino:
+    parameters: Parametros
+    parking_cost_histories: Historico do Preço
+    enroll_cards: Cartões
+    card_types: Tipo dos Cartões
+    accounts: Contas
     admin:
       login:
         title: "Login"

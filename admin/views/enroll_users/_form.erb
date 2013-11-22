@@ -1,0 +1,41 @@
+<% error = @enroll_user.errors.include?(:name) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :name, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :name, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:name) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @enroll_user.errors.include?(:date_born) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :date_born, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :date_born, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:date_born) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @enroll_user.errors.include?(:sex) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :sex, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :sex, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:sex) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @enroll_user.errors.include?(:cpf) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :cpf, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :cpf, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:cpf) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:enroll_users, :index), :class => 'btn btn-default' %>
+</div>

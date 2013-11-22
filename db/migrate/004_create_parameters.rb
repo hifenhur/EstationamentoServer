@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateParameters < ActiveRecord::Migration
   def self.up
     create_table :parameters do |t|

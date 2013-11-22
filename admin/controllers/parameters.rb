@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Estacionamento::Admin.controllers :parameters do
   get :index do
     @title = "Parameters"

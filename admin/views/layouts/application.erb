@@ -31,7 +31,7 @@
               <% else %>
                 <li class=navbar-module>
               <% end %>
-                <%= link_to project_module.human_name, project_module.path("/admin") %>
+                <%= link_to (t project_module.name), project_module.path("/admin") %>
                 </li>
             <% end %>
           </ul>

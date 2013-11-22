@@ -1,11 +1,3 @@
-<% error = @parameter.errors.include?(:parking_cost) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :parking_cost, :class => 'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :parking_cost, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
-    <span class='help-inline'><%= error ? f.error_message_on(:parking_cost) : "Ex: a simple text" %></span>
-  </div>
-</fieldset>
 
 
 <div class="form-actions">

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Estacionamento::Admin.controllers :enroll_cards do
   get :index do
     @title = "Enroll_cards"

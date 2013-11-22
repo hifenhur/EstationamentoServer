@@ -38,6 +38,7 @@
         </th>
                 <th class=header> <%= mat(:card_type, :id) %></th>
                 <th class=header> <%= mat(:card_type, :name) %></th>
+                <th class=header> <%= mat(:card_type, :parking_cost) %></th>
                 <th class="header list-row-action-header"></th>
     </thead>
 
@@ -49,6 +50,7 @@
            </td>
           <td class=list-column> <%= card_type.id %> </td>
           <td class=list-column> <%= card_type.name %> </td>
+          <td class=list-column> <%= card_type.parking_cost.round(2) %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
                <%= link_to tag_icon(:edit), :href => url(:card_types, :edit, :id => card_type.id), :rel => :tooltip, :title => "#{pat(:edit)} card_type", :class => 'list-row-action-wrapper-link' %>
