@@ -1,0 +1,8 @@
+pt_br:
+  models:
+    card_type:
+      name: Tipo de Cartão
+      attributes:
+        id: Id
+        name: Nome
+        parking_cost: Custo do Estacionamento

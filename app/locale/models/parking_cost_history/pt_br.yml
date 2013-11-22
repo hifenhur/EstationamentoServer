@@ -1,0 +1,9 @@
+pt_br:
+  models:
+    parking_cost_history:
+      name: Parking cost history
+      attributes:
+        id: Id
+        date: Date
+        parking_cost: Parking cost
+        card_type: Card type

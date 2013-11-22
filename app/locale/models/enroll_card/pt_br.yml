@@ -1,0 +1,11 @@
+pt_br:
+  models:
+    enroll_card:
+      name: Cartão
+      attributes:
+        id: Id
+        pin: Pin
+        payment_type: Tipo de Pagamento
+        balance: Balanço
+        card_type: Tipo de Cartão
+        user: Usuario

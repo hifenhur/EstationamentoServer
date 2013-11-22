@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:enroll_cards, :index) %></li>
+  <li class="active"> <%= link_to tag_icon(:plus, pat(:new)), url(:enroll_cards, :new) %></li>
+</ul>
+<div class="tabs-content">
+  <% form_for :enroll_card, url(:enroll_cards, :create), :class => 'form-horizontal' do |f| %>
+    <%= partial 'enroll_cards/form', :locals => { :f => f } %>
+ <% end %>
+</div>

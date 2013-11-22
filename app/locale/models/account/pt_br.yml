@@ -1,0 +1,13 @@
+pt_br:
+  models:
+    account: 
+      name: Conta
+      attributes:
+        id: Id
+        name: Nome
+        surname: Sobrenome
+        email: Email
+        crypted_password: Password Encriptado
+        role: Regra
+        created_at: Criado em
+        updated_at: Atualizado em

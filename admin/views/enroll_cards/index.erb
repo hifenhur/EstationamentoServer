@@ -1,0 +1,78 @@
+<ul class="nav nav-tabs">
+  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:enroll_cards, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:enroll_cards, :new) %></li>
+</ul>
+<div class=tabs-content>
+  <table id=list class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+        <th class="header list-menu">
+          <div class=dropdown>
+            <a href="#" class="list-menu-toggle dropdown-toggle" data-toggle='dropdown'>
+              <%= tag_icon :magic %> <span class=caret></span>
+            </a>
+            <ul class="list-menu dropdown-menu" role=menu>
+              <li class=ist-menu-wrapper>
+                <%= link_to tag_icon(:check, pat(:select_all)), '#', :id => 'select-all', :class => 'list-menu-link' %>
+              </li>
+              <li class=list-menu-wrapper.list-menu-wrapper-disabled>
+                <%= link_to tag_icon('check-empty', pat(:deselect_all)), '#', :id => 'deselect-all', :class => 'list-menu-link list-menu-link-disabled' %>
+              </li>
+              <li class="list-menu-divider divider"></li>
+              <li class=list-menu-wrapper.list-menu-wrapper-disabled>
+                <%=link_to tag_icon(:trash, pat(:delete_selected)), '#', :id => 'delete-selected', :class => 'list-menu-link list-menu-link-disabled' %>
+                <div class='list-menu-popover-delete-selected popover right'>
+                  <div class=arrow></div>
+                  <h3 class=popover-title><%= pat(:delete_selected_title) %></h3>
+                  <div class=popover-content>
+                    <% form_tag url(:enroll_cards, :destroy_many), :method => :delete do %>
+                      <%=hidden_field_tag :enroll_card_ids, :'data-delete-many-ids' => true %>
+                      <%=submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small' %>
+                      <div class='btn btn-default btn-small cancel'><%= pat(:cancel) %></div>
+                    <% end %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </th>
+                <th class=header> <%= mat(:enroll_card, :id) %></th>
+                <th class=header> <%= mat(:enroll_card, :pin) %></th>
+                <th class=header> <%= mat(:enroll_card, :payment_type) %></th>
+                <th class=header> <%= mat(:enroll_card, :balance) %></th>
+                <th class=header> <%= mat(:enroll_card, :card_type) %></th>
+                <th class=header> <%= mat(:enroll_card, :user) %></th>
+                <th class="header list-row-action-header"></th>
+    </thead>
+
+    <tbody>
+      <% @enroll_cards.each do |enroll_card| %>
+        <tr class=list-row>
+          <td class="list-column list-selectable">
+            <%= check_box_tag 'enroll_card_ids[]', :value => enroll_card.id, :class => 'list-selectable-checkbox' %>
+           </td>
+          <td class=list-column> <%= enroll_card.id %> </td>
+          <td class=list-column> <%= enroll_card.pin %> </td>
+          <td class=list-column> <%= enroll_card.payment_type %> </td>
+          <td class=list-column> <%= enroll_card.balance %> </td>
+          <td class=list-column> <%= enroll_card.card_type %> </td>
+          <td class=list-column> <%= enroll_card.user %> </td>
+          <td class="list-column list-row-action">
+            <div class='list-row-action-wrapper'>
+               <%= link_to tag_icon(:edit), :href => url(:enroll_cards, :edit, :id => enroll_card.id), :rel => :tooltip, :title => "#{pat(:edit)} enroll_card", :class => 'list-row-action-wrapper-link' %>
+               <%= link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} enroll_card", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
+               <div class="popover list-row-action-popover-delete-one left">
+                 <div class=arrow> </div>
+                 <h3 class=popover-title><%= pat(:delete, :model => "enroll_card") %></h3>
+                 <div class=popover-content>
+                   <%- form_tag url(:enroll_cards, :destroy, :id => enroll_card.id), :method => :delete do %>
+                     <%= submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small' %>
+                     <div class="btn btn-default btn-small cancel"><%= pat(:cancel) %></div>
+                   <% end %>
+               </div>
+             </div>
+          </td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
