@@ -13,6 +13,8 @@ class CardType < ActiveRecord::Base
 	has_many :enroll_cards
 	has_many :parking_cost_histories
 
+	validates_presence_of :name, :parking_cost
+
 	def to_s
 		name	
 	end

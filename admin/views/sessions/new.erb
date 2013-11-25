@@ -14,7 +14,7 @@
   <body>
     <% form_tag url(:sessions, :create), :class=>"login form-horizontal" do %>
       <div class="login-header modal-header">
-        <div class="login-logo"> <%= image_tag("logo.png", :alt => "Padrino's logo", :height => 250, :width => 193) %> </div>
+        <div class="login-logo"> <h1>EXPARK</h1> </div>
       </div>
       <div class="login-body modal-body">
 
@@ -42,3 +42,9 @@
     <%= javascript_include_tag 'jquery-1.9.0.min', (Padrino.env == :production ? 'bootstrap/bootstrap.min' : %w[bootstrap/affix bootstrap/alert bootstrap/button bootstrap/carousel bootstrap/collapse bootstrap/dropdown  bootstrap/tooltip bootstrap/transition  bootstrap/modal bootstrap/popover bootstrap/scrollspy bootstrap/tab]), :application %>
   </body>
 </html>
+<style type="text/css">
+body {
+background: midnightblue;
+color: aliceblue;
+}
+</style>

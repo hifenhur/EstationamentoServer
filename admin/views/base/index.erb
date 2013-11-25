@@ -1,6 +1,7 @@
 <div class="row-fluid">
 
-  <div class="col-md-7">
+
+  <div class="col-md-6">
     <h1>Histórico</h1>
     <table class="table table-bordered table-hover">
       <tr>
@@ -8,54 +9,89 @@
         <th><%= t('entry_time') %></th>
         <th><%= t('exit_time') %></th>
       </tr>
+      <% @histories.each do |history| %>
       <tr>
-        <% @histories.each do |history| %>
         <td><%= history.card.pin %></td>
-          <td><%= l history.dt_time_in, format: :short %></td>
-          <td><%= l history.dt_time_out, format: :short %></td>
-        <% end %>
+        <td><%= l history.dt_time_in, format: :short if history.dt_time_in %></td>
+        <td><%= l history.dt_time_out, format: :short if history.dt_time_out %></td>
       </tr>
+      <% end %>
     </table>
   </div>
 
-  <div class="col-md-5" style="border: 1px solid black;" id="home-table">
-    <table class="table table-hover ">
-      <tr>
-        <h2>Rendimento</h2>
-      </tr>
-      <tr>
-        <th>Dia</th>
-        <th>Semana</th>
-        <th>Mês</th>
-      </tr>
-      <tr>
-        <th><h2><%= number_to_currency(ParkingHistory.day_trade) %></h2></th>
-        <th><h2><%= number_to_currency(ParkingHistory.day_trade) %></h2></th>
-        <th><h2><%= number_to_currency(200) %></h2></th>
-      </tr>
-    </table>
-    <br>
-    <table class="table table-hover">
-      <tr>
-        <h2>Cartões Utilizados</h2>
-      </tr>
-       <tr>
-        <th>Dia</th>
-        <th></th>
-        <th>Semana</th>
-        <th></th>
-        <th>Mês</th>
-        <th></th>
-      </tr>
-      <tr>
-          <td>Mensalista</td>
-          <td>Não Mensalista</td>
-          <td>Mensalista</td>
-          <td>Não Mensalista</td>
-          <td>Mensalista</td>
-          <td>Não Mensalista</td>
-      </tr>
-    </table>
+  <div class="col-md-6" style="border: 1px solid black;" id="home-table">
+    <!--
+    <div class="filter">
+        <form action="/admin/datefilter" method="get" data-push="true" data-target="#catalog">
+            <input type="text" size="30" name="period" id="date">
+            <input type="submit" value="Find" name="commit" class="btn">
+        </form>
+    </div>
+  -->
+
+    <div id="catalog">
+      <br>
+      <table class="table table-hover table-bordered">
+        <tr>
+          <h2 class="table-header">Utilização</h2>
+        </tr>
+        <tr>
+          <th>Dia</th>
+          <th>Semana</th>
+          <th>Mês</th>
+        </tr>
+        <tr>
+          <td><%= @day_use %></td>
+          <td><%= @week_use %></td>
+          <td><%= @month_use %></td>
+        </tr>
+      </table>
+      <table class="table table-hover table-bordered">
+        <tr>
+          <h2 class="table-header">Rendimento</h2>
+        </tr>
+        <tr>
+          <th>Dia</th>
+          <th>Semana</th>
+          <th>Mês</th>
+        </tr>
+        <tr>
+          <th><h2><%= number_to_currency(@day_trade) %></h2></th>
+          <th><h2><%= number_to_currency(@week_trade) %></h2></th>
+          <th><h2><%= number_to_currency(@month_trade) %></h2></th>
+        </tr>
+      </table>
+      <br>
+      <table class="table table-hover table-bordered">
+        <tr>
+          <h2 class="table-header" >Cartões Utilizados</h2>
+        </tr>
+         <tr>
+          <th colspan="2">Dia</th>
+          
+          <th colspan="2">Semana</th>
+          
+          <th colspan="2">Mês</th>
+          
+        </tr>
+        <tr>
+            <td>Pós</td>
+            <td>Pré</td>
+            <td>Pós</td>
+            <td>Pré</td>
+            <td>Pós</td>
+            <td>Pré</td>
+        </tr>
+        <tr>
+            <td><%= @day_card_type2 %></td>
+            <td><%= @day_card_type1 %></td>
+            <td><%= @week_card_type2 %></td>
+            <td><%= @week_card_type1 %></td>
+            <td><%= @month_card_type2 %></td>
+            <td><%= @month_card_type1 %></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 

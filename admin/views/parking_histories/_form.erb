@@ -6,12 +6,12 @@
     <span class='help-inline'><%= error ? f.error_message_on(:dh_ins) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
-<% error = @parking_history.errors.include?(:card) %>
+<% error = @parking_history.errors.include?(:card_id) %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :card, :class => 'control-label' %>
+  <%= f.label :card_id, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :card, :class => 'form-control input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:card) : "Ex: a simple text" %></span>
+    <%= f.text_field :card_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:card_id) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
 <% error = @parking_history.errors.include?(:dt_time_in) %>
@@ -30,14 +30,7 @@
     <span class='help-inline'><%= error ? f.error_message_on(:dt_time_out) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
-<% error = @parking_history.errors.include?(:user) %>
-<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :user, :class => 'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :user, :class => 'form-control input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:user) : "Ex: a simple text" %></span>
-  </div>
-</fieldset>
+
 
 
 <div class="form-actions">

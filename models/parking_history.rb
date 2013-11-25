@@ -6,7 +6,7 @@
 #  dh_ins      :datetime
 #  card_id     :integer          not null
 #  dt_time_in  :datetime         not null
-#  dt_time_out :datetime         not null
+#  dt_time_out :datetime
 #  user_id     :integer
 #
 
@@ -22,13 +22,43 @@ class ParkingHistory < ActiveRecord::Base
 		dt_time_out - dt_time_in
 	end
 
-	def self.day_trade
+	def self.get_period(period)
+		case period
+		when :day
+			period = Time.now.at_beginning_of_day
+		when :week
+			period = 7.days.ago.at_beginning_of_day
+		when :month		
+			period = 30.days.ago.at_beginning_of_day
+		else
+			begin
+				
+			rescue Exception => e
+				return e	
+			end
+		end
+		return period
+	end
+
+	def self.trade_by_period(period)
+		period = get_period(period)
 		total = 0
-		self.where('dt_time_in > ?', Time.now.at_beginning_of_day).includes(:card_type).each do |h|
+		self.where('dt_time_in > ?', period).includes(:card_type).each do |h|
    			total += (h.utilized_time.to_i * h.card_type.parking_cost)
 		end
 		return total/100
 	end
 
+	def self.use_by_type_and_period(period, type)
+		period = get_period(period)
+		self.where('dt_time_in > ? and enroll_cards.payment_type = ?', period, type).includes(:card).count
+	end
+
+	def self.movements_by_period(period)
+		period = get_period(period)
+		self.where('dt_time_in > ?', period).count
+	end
+
+	
 
 end
