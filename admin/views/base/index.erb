@@ -2,7 +2,7 @@
 
 
   <div class="col-md-6">
-    <h1>Histórico</h1>
+    <h1><a href="/admin/parking_histories">Histórico</a></h1>
     <table class="table table-bordered table-hover">
       <tr>
         <th><%= t('pin') %></th>
@@ -17,6 +17,7 @@
       </tr>
       <% end %>
     </table>
+    <%= will_paginate @histories %>
   </div>
 
   <div class="col-md-6" style="border: 1px solid black;" id="home-table">

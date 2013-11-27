@@ -2,12 +2,13 @@
 #
 # Table name: parking_histories
 #
-#  id          :integer          not null, primary key
-#  dh_ins      :datetime
-#  card_id     :integer          not null
-#  dt_time_in  :datetime         not null
-#  dt_time_out :datetime
-#  user_id     :integer
+#  id                  :integer          not null, primary key
+#  date_time_reg       :datetime
+#  card_id             :integer          not null
+#  dt_time_in          :datetime         not null
+#  dt_time_out         :datetime
+#  parkingmeter_id_in  :integer
+#  parkingmeter_id_out :integer
 #
 
 # -*- encoding : utf-8 -*-

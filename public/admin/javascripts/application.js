@@ -117,21 +117,37 @@
 }(window.jQuery);
 //= require wiselinks
 
-$(document).ready(function() {
-  window.wiselinks = new Wiselinks($('#content'));
-  $(document).off('page:loading').on('page:loading', function(event, $target, render, url) {
-    return console.log("Loading: " + url + " to " + $target.selector + " within '" + render + "'");
+//$(document).ready(function() {
+  //window.wiselinks = new Wiselinks($('#content'));
+  //$(document).off('page:loading').on('page:loading', function(event, $target, render, url) {
+    //return console.log("Loading: " + url + " to " + $target.selector + " within '" + render + "'");
+  //});
+  //$(document).off('page:redirected').on('page:redirected', function(event, $target, render, url) {
+    //return console.log("Redirected to: " + url);
+  //});
+  //$(document).off('page:always').on('page:always', function(event, xhr, settings) {
+    //return console.log("Wiselinks page loading completed");
+  //});
+  //$(document).off('page:done').on('page:done', function(event, $target, status, url, data) {
+    //return console.log("Wiselinks status: '" + status + "'");
+  //});
+  //return $(document).off('page:fail').on('page:fail', function(event, $target, status, url, error, code) {
+    //return console.log("Wiselinks status: '" + status + "'");
+  //});
+//});
+$(document).ready(function(){
+  $('.date-time').each(function(){
+    $(this).replaceWith('<div id="datetimepicker1" class="input-append date well">'+
+      '<span class="add-on">'+
+        '<i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>'+
+      '</span>'+
+      '<input class="form-control" data-format="dd/MM/yyyy hh:mm:ss" type="text" name="'+$(this).attr('name')+'"></input>'+
+    '</div>')
+
+  })  
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      language: 'pt-BR'
+    });
   });
-  $(document).off('page:redirected').on('page:redirected', function(event, $target, render, url) {
-    return console.log("Redirected to: " + url);
-  });
-  $(document).off('page:always').on('page:always', function(event, xhr, settings) {
-    return console.log("Wiselinks page loading completed");
-  });
-  $(document).off('page:done').on('page:done', function(event, $target, status, url, data) {
-    return console.log("Wiselinks status: '" + status + "'");
-  });
-  return $(document).off('page:fail').on('page:fail', function(event, $target, status, url, error, code) {
-    return console.log("Wiselinks status: '" + status + "'");
-  });
-});
+})

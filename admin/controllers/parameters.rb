@@ -2,7 +2,7 @@
 Estacionamento::Admin.controllers :parameters do
   get :index do
     @title = "Parameters"
-    @parameters = Parameter.all
+    @parameters = Parameter.paginate(page: params[:page], per_page: 10)
     render 'parameters/index'
   end
 

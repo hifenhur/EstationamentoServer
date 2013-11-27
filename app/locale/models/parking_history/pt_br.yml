@@ -9,3 +9,7 @@ pt_br:
         dt_time_in: Entrada
         dt_time_out: Saida
         user: Usuário
+        date_time_reg: Data do Registro
+        card_id: Card
+        parkingmeter_id_in: Parquimetro de Entrada
+        parkingmeter_id_out: Parquimetro de Saida

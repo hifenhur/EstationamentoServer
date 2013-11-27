@@ -13,7 +13,7 @@ Estacionamento::Admin.controllers :base do
 	@day_use = ParkingHistory.movements_by_period :day
 	@week_use = ParkingHistory.movements_by_period :week
 	@month_use = ParkingHistory.movements_by_period :month
-  	@histories = ParkingHistory.joins(:card).select('parking_histories.*, enroll_cards.pin')
+  	@histories = ParkingHistory.joins(:card).select('parking_histories.*, enroll_cards.pin').order(:dt_time_in).paginate(page: params[:page], per_page: 11)
     render "base/index"
   end
 

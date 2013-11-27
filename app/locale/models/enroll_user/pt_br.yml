@@ -1,0 +1,10 @@
+pt_br:
+  models:
+    enroll_user:
+      name: Usuário
+      attributes:
+        id: Id
+        name: Nome
+        date_born: Data de Nascimento
+        sex: Sexo
+        cpf: Cpf

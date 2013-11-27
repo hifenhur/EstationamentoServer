@@ -2,7 +2,7 @@
 Estacionamento::Admin.controllers :accounts do
   get :index do
     @title = "Accounts"
-    @accounts = Account.all
+    @accounts = Account.paginate(page: params[:page], per_page: 13)
     render 'accounts/index'
   end
 

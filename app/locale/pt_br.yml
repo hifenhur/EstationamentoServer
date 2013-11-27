@@ -2,6 +2,7 @@ pt_br:
   parameters: Parametros
   parking_cost_histories: Historico dos Preços
   enroll_cards: Cartões
+  enroll_users: Usuários
   card_types: Tipos dos Cartão
   accounts: Contas
   parking_histories: 'Historico do Estacionamento'

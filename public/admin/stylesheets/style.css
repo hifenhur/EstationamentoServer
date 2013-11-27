@@ -11,3 +11,9 @@
 	margin: 0;
 	padding: 10px 0;
 }
+#datetimepicker1 input {
+	width: 200px;
+}
+#datetimepicker1 {
+	height: 70px;
+}

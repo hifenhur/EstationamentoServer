@@ -2,7 +2,7 @@
 Estacionamento::Admin.controllers :card_types do
   get :index do
     @title = "Card_types"
-    @card_types = CardType.all
+    @card_types = CardType.paginate(page: params[:page], per_page: 10)
     render 'card_types/index'
   end
 

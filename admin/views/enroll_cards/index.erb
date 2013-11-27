@@ -40,8 +40,8 @@
                 <th class=header> <%= mat(:enroll_card, :pin) %></th>
                 <th class=header> <%= mat(:enroll_card, :payment_type) %></th>
                 <th class=header> <%= mat(:enroll_card, :balance) %></th>
-                <th class=header> <%= mat(:enroll_card, :card_type) %></th>
-                <th class=header> <%= mat(:enroll_card, :user) %></th>
+                <th class=header> <%= mat(:enroll_card, :card_type_id) %></th>
+                <th class=header> <%= mat(:enroll_card, :user_id) %></th>
                 <th class="header list-row-action-header"></th>
     </thead>
 
@@ -55,8 +55,8 @@
           <td class=list-column> <%= enroll_card.pin %> </td>
           <td class=list-column> <%= enroll_card.payment_type %> </td>
           <td class=list-column> <%= enroll_card.balance %> </td>
-          <td class=list-column> <%= enroll_card.card_type %> </td>
-          <td class=list-column> <%= enroll_card.user %> </td>
+          <td class=list-column> <%= enroll_card.card_type_id %> </td>
+          <td class=list-column> <%= enroll_card.user_id %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
                <%= link_to tag_icon(:edit), :href => url(:enroll_cards, :edit, :id => enroll_card.id), :rel => :tooltip, :title => "#{pat(:edit)} enroll_card", :class => 'list-row-action-wrapper-link' %>
@@ -75,4 +75,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= will_paginate @enroll_cards %>
 </div>

@@ -1,8 +1,7 @@
-# -*- encoding : utf-8 -*-
 Estacionamento::Admin.controllers :enroll_cards do
   get :index do
     @title = "Enroll_cards"
-    @enroll_cards = EnrollCard.all
+    @enroll_cards = EnrollCard.paginate(page: params[:page], per_page: 10)
     render 'enroll_cards/index'
   end
 

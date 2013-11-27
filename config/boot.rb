@@ -43,6 +43,12 @@ end
 #
 Padrino.after_load do
 	I18n.locale = 'pt_br'
+	require 'will_paginate'
+    require 'will_paginate/active_record' 
+    require 'will_paginate/view_helpers/sinatra'
+    
+
+    include WillPaginate::Sinatra::Helpers  
 end
 
 Padrino.load!

@@ -7,3 +7,6 @@ pt_br:
         date: Data
         parking_cost: Custo
         card_type: Tipo de Cartão
+        card_type_id: Tipo de Cartão
+
+

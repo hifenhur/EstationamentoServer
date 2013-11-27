@@ -2,7 +2,7 @@
 Estacionamento::Admin.controllers :enroll_users do
   get :index do
     @title = "Enroll_users"
-    @enroll_users = EnrollUser.all
+    @enroll_users = EnrollUser.paginate(page: params[:page], per_page: 10)
     render 'enroll_users/index'
   end
 
