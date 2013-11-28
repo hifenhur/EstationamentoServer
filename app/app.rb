@@ -9,6 +9,10 @@ module Estacionamento
 
     enable :sessions
 
+    get "/" do
+        redirect_to '/admin/'
+    end
+
     ##
     # Caching support.
     #

@@ -8,12 +8,14 @@
         <th><%= t('pin') %></th>
         <th><%= t('entry_time') %></th>
         <th><%= t('exit_time') %></th>
+        <th><%= t('utilized_time') %></th>
       </tr>
       <% @histories.each do |history| %>
       <tr>
         <td><%= history.card.pin %></td>
         <td><%= l history.dt_time_in, format: :short if history.dt_time_in %></td>
         <td><%= l history.dt_time_out, format: :short if history.dt_time_out %></td>
+        <td><%= history.utilized_time_in_hours %></td>
       </tr>
       <% end %>
     </table>
