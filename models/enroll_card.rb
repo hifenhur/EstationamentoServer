@@ -15,6 +15,7 @@ class EnrollCard < ActiveRecord::Base
 	belongs_to :card_type
 	belongs_to :user, foreign_key: 'user_id', class_name: 'EnrollUser'
 
+	validates_presence_of :pin, :payment_type, :balance, :card_type_id, :user_id
 	def to_s
 		pin	
 	end

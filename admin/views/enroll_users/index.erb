@@ -52,9 +52,9 @@
            </td>
           <td class=list-column> <%= enroll_user.id %> </td>
           <td class=list-column> <%= enroll_user.name %> </td>
-          <td class=list-column> <%= enroll_user.date_born %> </td>
+          <td class=list-column> <%= l enroll_user.date_born, format: :long if enroll_user.date_born %> </td>
           <td class=list-column> <%= enroll_user.sex %> </td>
-          <td class=list-column> <%= enroll_user.cpf %> </td>
+          <td class=list-column> <%= "#{enroll_user.cpf[0..2]}.#{enroll_user.cpf[3..5]}.#{enroll_user.cpf[6..8]}-#{enroll_user.cpf[9..10]}" %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
                <%= link_to tag_icon(:edit), :href => url(:enroll_users, :edit, :id => enroll_user.id), :rel => :tooltip, :title => "#{pat(:edit)} enroll_user", :class => 'list-row-action-wrapper-link' %>

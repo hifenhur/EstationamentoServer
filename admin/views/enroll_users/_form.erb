@@ -8,9 +8,9 @@
 </fieldset>
 <% error = @enroll_user.errors.include?(:date_born) %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :date_born, :class => 'control-label' %>
+  <%= f.label :date_born, :class => 'control-label ' %>
   <div class='controls'>
-    <%= f.text_field :date_born, :class => 'form-control input-xlarge input-with-feedback' %>
+    <%= f.text_field :date_born, :class => 'form-control input-xlarge input-with-feedback date-time' %>
     <span class='help-inline'><%= error ? f.error_message_on(:date_born) : "" %></span>
   </div>
 </fieldset>
@@ -39,3 +39,4 @@
   &nbsp;
   <%= link_to pat(:cancel), url(:enroll_users, :index), :class => 'btn btn-default' %>
 </div>
+

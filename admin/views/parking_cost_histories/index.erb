@@ -15,7 +15,7 @@
       <% @parking_cost_histories.each do |parking_cost_history| %>
         <tr class=list-row>
           <td class=list-column> <%= parking_cost_history.id %> </td>
-          <td class=list-column> <%= parking_cost_history.date %> </td>
+          <td class=list-column> <%= l parking_cost_history.date, format: :short if parking_cost_history.date %> </td>
           <td class=list-column> <%= parking_cost_history.parking_cost.round(2) %> </td>
           <td class=list-column> <%= parking_cost_history.card_type %> </td>
       <% end %>

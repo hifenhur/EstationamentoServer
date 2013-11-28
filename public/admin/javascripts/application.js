@@ -150,4 +150,6 @@ $(document).ready(function(){
       language: 'pt-BR'
     });
   });
+  $('#enroll_user_cpf').mask("999.999.999-99");
+  
 })
