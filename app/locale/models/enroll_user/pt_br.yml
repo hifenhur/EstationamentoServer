@@ -4,6 +4,7 @@ pt_br:
       name: Usuário
       attributes:
         id: Id
+        utilized_time: Tempo Utilizado
         name: Nome
         date_born: Data de Nascimento
         sex: Sexo
