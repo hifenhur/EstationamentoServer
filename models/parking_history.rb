@@ -20,13 +20,24 @@ class ParkingHistory < ActiveRecord::Base
 	end
 
 	def utilized_time_in_hours
-		time = self.utilized_time
-		hours = time/3600.to_i
-		minutes = (time/60 - hours * 60).to_i
-		seconds = (time - (minutes * 60 + hours * 3600))
-		
-		return "#{hours}:#{minutes}:#{seconds}", hours, minutes, seconds
+ 
+        @timeElapsed = self.utilized_time.to_i
+     
+        #find the seconds
+        seconds = @timeElapsed % 60
+     
+        #find the minutes
+        minutes = (@timeElapsed / 60) % 60
+     
+        #find the hours
+        hours = (@timeElapsed/3600)
+     
+        #format the time
+     
+		return hours.to_s + ":" + format("%02d",minutes.to_s) + ":" + format("%02d",seconds.to_s)
 	end
+
+	
 
 	def utilized_time
 		dt_time_out - dt_time_in
