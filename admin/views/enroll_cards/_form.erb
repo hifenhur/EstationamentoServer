@@ -26,7 +26,7 @@
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :card_type_id, :class => 'control-label' %>
   <div class='controls'>
-    <%= select_tag('card[card_type_id]', :collection => CardType.all, :fields => [:name, :id], :include_blank => true,
+    <%= select_tag('enroll_card[card_type_id]', :collection => CardType.all, :fields => [:name, :id], :include_blank => true,
      :class => 'form-control input-xlarge input-with-feedback') %>
   </div>
 </fieldset>
