@@ -17,7 +17,8 @@
         <tr class=list-row>
           <td class=list-column> <%= parking_history.id %> </td>
           <td class=list-column> <%= l parking_history.date_time_reg, format: :short if parking_history.date_time_reg %> </td>
-          <td class=list-column> <%= parking_history.card_id %> </td>
+          <td class=list-column> <%= link_to parking_history.card_id.to_s, "enroll_cards/edit/#{parking_history.card_id}" %> 
+          </td>
           <td class=list-column> <%= l parking_history.dt_time_in, format: :short if parking_history.dt_time_in %> </td>
           <td class=list-column> <%= l parking_history.dt_time_out, format: :short if parking_history.dt_time_out %> </td>
           

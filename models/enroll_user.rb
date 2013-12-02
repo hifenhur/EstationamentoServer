@@ -25,4 +25,11 @@ class EnrollUser < ActiveRecord::Base
 		name
 	end
 
+	def sex_to_str
+		if sex == 1
+			"Masculino"
+		else
+			"Feminino"
+		end
+	end
 end

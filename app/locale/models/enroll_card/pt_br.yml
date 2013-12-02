@@ -8,7 +8,6 @@ pt_br:
         payment_type: Tipo de Pagamento
         balance: Balanço
         card_type: Tipo de Cartão
-        user: Usuario
-
-        card_type_id: Card type
-        user_id: User
+        user: Usuário
+        card_type_id: Tipo de Cartão
+        user_id: Usuário

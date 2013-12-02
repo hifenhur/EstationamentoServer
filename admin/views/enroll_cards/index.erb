@@ -56,7 +56,7 @@
           <td class=list-column> <%= enroll_card.payment_type %> </td>
           <td class=list-column> <%= enroll_card.balance %> </td>
           <td class=list-column> <%= enroll_card.card_type %> </td>
-          <td class=list-column> <%= enroll_card.user_id %> </td>
+          <td class=list-column> <%= link_to enroll_card.user_id.to_s, "enroll_users/edit/#{enroll_card.user_id}" %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
                <%= link_to tag_icon(:edit), :href => url(:enroll_cards, :edit, :id => enroll_card.id), :rel => :tooltip, :title => "#{pat(:edit)} enroll_card", :class => 'list-row-action-wrapper-link' %>

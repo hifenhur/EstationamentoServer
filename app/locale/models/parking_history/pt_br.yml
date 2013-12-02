@@ -10,6 +10,6 @@ pt_br:
         dt_time_out: Saida
         user: Usuário
         date_time_reg: Data do Registro
-        card_id: Card
+        card_id: Cartão
         parkingmeter_id_in: Parquimetro de Entrada
         parkingmeter_id_out: Parquimetro de Saida

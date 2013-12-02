@@ -53,7 +53,7 @@
           <td class=list-column> <%= enroll_user.id %> </td>
           <td class=list-column> <%= enroll_user.name %> </td>
           <td class=list-column> <%= l enroll_user.date_born, format: :long if enroll_user.date_born %> </td>
-          <td class=list-column> <%= enroll_user.sex %> </td>
+          <td class=list-column> <%= enroll_user.sex_to_str %> </td>
           <td class=list-column> <%= "#{enroll_user.cpf[0..2]}.#{enroll_user.cpf[3..5]}.#{enroll_user.cpf[6..8]}-#{enroll_user.cpf[9..10]}" %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
