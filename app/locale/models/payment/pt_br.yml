@@ -1,0 +1,16 @@
+pt_br:
+  models:
+    payment:
+      name: Payment
+      attributes:
+        id: Id
+        city: Cidade
+        address: Endereço
+        diff_hours: Diferença de horas
+        diff_days: Diferença de dias
+        card_number: Número do Cartão
+        price: Preço
+        dt_checkin: Entrada
+        dt_checkout: Saida
+        received_value: Valor Recebido
+        tolerance: Tolerância

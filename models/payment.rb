@@ -1,20 +1,22 @@
-# -*- encoding : utf-8 -*-
 # == Schema Information
 #
-# Table name: parking_histories
+# Table name: checkout_payments
 #
-#  id                  :integer          not null, primary key
-#  date_time_reg       :datetime
-#  card_id             :integer          not null
-#  dt_time_in          :datetime         not null
-#  dt_time_out         :datetime
-#  parkingmeter_id_in  :integer          default(1)
-#  parkingmeter_id_out :integer          default(1)
+#  id             :integer          not null, primary key
+#  city           :string           not null
+#  address        :string           not null
+#  diff_hours     :string           not null
+#  diff_days      :integer          not null
+#  card_number    :string           not null
+#  price          :decimal(5, 2)    not null
+#  dt_checkin     :datetime         not null
+#  dt_checkout    :datetime         not null
+#  received_value :string           not null
+#  tolerance      :string           not null
 #
 
-class ParkingHistory < ActiveRecord::Base
-	belongs_to :card, foreign_key: 'card_id', class_name: 'EnrollCard'
-	has_one :card_type, through: :card
+class Payment < ActiveRecord::Base
+	self.table_name = "checkout_payments"
 	
 	def to_s
 		id	
@@ -41,7 +43,7 @@ class ParkingHistory < ActiveRecord::Base
 	
 
 	def utilized_time
-		dt_time_out - dt_time_in
+		dt_checkout - dt_checkin
 	end
 
 	def self.get_period(period)
@@ -65,22 +67,25 @@ class ParkingHistory < ActiveRecord::Base
 	def self.trade_by_period(period)
 		period = get_period(period)
 		total = 0
-		self.where('dt_time_in > ?', period).includes(:card_type).each do |h|
-   			total += (h.utilized_time.to_i * h.card_type.parking_cost)
+		self.where('dt_checkin > ?', period).each do |h|
+   			total += h.price
 		end
-		return total/100
+		return total
 	end
 
 	def self.use_by_type_and_period(period, type)
 		period = get_period(period)
-		self.where('dt_time_in > ? and enroll_cards.payment_type = ?', period, type).includes(:card).count
+		if type == 1
+			self.where('dt_checkin > ? and card_number != ?', period, "Pag. Avulso").count
+		else	
+			self.where('dt_checkin > ? and card_number = ?', period, "Pag. Avulso").count
+		end
+		
 	end
 
 	def self.movements_by_period(period)
 		period = get_period(period)
-		self.where('dt_time_in > ?', period).count
+		self.where('dt_checkin > ?', period).count
 	end
-
-	
 
 end

@@ -1,4 +1,8 @@
 pt_br:
+  
+  card_number: Número do Cartão
+  checkout_payments: Pagamentos
+  payments: Pagamentos
   utilized_time: Tempo Utilizado
   parameters: Parametros
   parking_cost_histories: Historico dos Preços
@@ -48,3 +52,8 @@ pt_br:
     array:
       sentence_connector: "e"
       skip_last_comma: false
+
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próximo &#8594;"
+    page_gap: "&hellip;"

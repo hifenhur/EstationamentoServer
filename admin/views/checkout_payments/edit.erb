@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:checkout_payments, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:checkout_payments, :new) %></li>
+  <li class="active"> <%= link_to tag_icon(:edit, pat(:edit)), url(:checkout_payments, :edit, :id => @checkout_payment.id) %></li>
+</ul>
+<div class="tabs-content">
+  <% form_for :checkout_payment, url(:checkout_payments, :update, :id => @checkout_payment.id), :method => :put, :class => 'form-horizontal' do |f| %>
+    <%= partial 'checkout_payments/form', :locals => { :f => f } %>
+  <% end %>
+</div>

@@ -5,16 +5,16 @@
     <h1><a href="/admin/parking_histories">Histórico</a></h1>
     <table class="table table-bordered table-hover">
       <tr>
-        <th><%= t('pin') %></th>
+        <th><%= t('card_number') %></th>
         <th><%= t('entry_time') %></th>
         <th><%= t('exit_time') %></th>
         <th><%= t('utilized_time') %></th>
       </tr>
       <% @histories.each do |history| %>
       <tr>
-        <td><%= history.card.pin %></td>
-        <td><%= l history.dt_time_in, format: :short if history.dt_time_in %></td>
-        <td><%= l history.dt_time_out, format: :short if history.dt_time_out %></td>
+        <td><%= history.card_number %></td>
+        <td><%= l history.dt_checkin, format: :short if history.dt_checkin %></td>
+        <td><%= l history.dt_checkout, format: :short if history.dt_checkout %></td>
         <td><%= history.utilized_time_in_hours %></td>
       </tr>
       <% end %>
@@ -78,12 +78,12 @@
           
         </tr>
         <tr>
-            <td>Pós</td>
-            <td>Pré</td>
-            <td>Pós</td>
-            <td>Pré</td>
-            <td>Pós</td>
-            <td>Pré</td>
+            <td>S/ Cartão</td>
+            <td>C/ Cartão</td>
+            <td>S/ Cartão</td>
+            <td>C/ Cartão</td>
+            <td>S/ Cartão</td>
+            <td>C/ Cartão</td>
         </tr>
         <tr>
             <td><%= @day_card_type2 %></td>

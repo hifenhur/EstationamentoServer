@@ -40,6 +40,7 @@ module Estacionamento
     role.project_module :enroll_users, '/enroll_users'
     role.project_module :parking_histories, '/parking_histories'
     role.project_module :card_types, '/card_types'
+    role.project_module :checkout_payments, '/payments'
     role.project_module :accounts, '/accounts'
     end
 
