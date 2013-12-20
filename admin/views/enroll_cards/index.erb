@@ -38,7 +38,6 @@
         </th>
                 <th class=header> <%= mat(:enroll_card, :id) %></th>
                 <th class=header> <%= mat(:enroll_card, :pin) %></th>
-                <th class=header> <%= mat(:enroll_card, :payment_type) %></th>
                 <th class=header> <%= mat(:enroll_card, :balance) %></th>
                 <th class=header> <%= mat(:enroll_card, :card_type_id) %></th>
                 <th class=header> <%= mat(:enroll_card, :user_id) %></th>
@@ -53,7 +52,6 @@
            </td>
           <td class=list-column> <%= enroll_card.id %> </td>
           <td class=list-column> <%= enroll_card.pin %> </td>
-          <td class=list-column> <%= enroll_card.payment_type %> </td>
           <td class=list-column> <%= enroll_card.balance %> </td>
           <td class=list-column> <%= enroll_card.card_type %> </td>
           <td class=list-column> <%= link_to enroll_card.user_id.to_s, "enroll_users/edit/#{enroll_card.user_id}" %> </td>

@@ -13,7 +13,7 @@ Estacionamento::Admin.controllers :base do
 	@day_use = Payment.movements_by_period :day
 	@week_use = Payment.movements_by_period :week
 	@month_use = Payment.movements_by_period :month
-  	@histories = Payment.order(:dt_checkin).paginate(page: params[:page], per_page: 11)
+  	@histories = Payment.order('dt_checkin desc').paginate(page: params[:page], per_page: 11)
     render "base/index"
   end
 

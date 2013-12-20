@@ -1,0 +1,1 @@
+taps push postgres://skia:skia123@localhost/bd _estacionamento http://skia:skia123@192.241.181.57:5000
