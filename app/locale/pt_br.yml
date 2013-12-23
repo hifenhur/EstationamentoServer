@@ -1,4 +1,5 @@
 pt_br:
+  dt_checkin: 'Data de Entrada'
   card_number: Número do Cartão
   checkout_payments: Pagamentos
   payments: Pagamentos

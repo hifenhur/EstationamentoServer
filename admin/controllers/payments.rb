@@ -1,7 +1,13 @@
 Estacionamento::Admin.controllers :payments do
   get :index do
     @title = "Payments"
-    @payments = Payment.paginate(page: params[:page], per_page: 15)
+    if params[:q]
+      @payments = Payment.search_by_query(params[:q]).paginate(page: params[:page], per_page: 15)
+    else
+      @payments = Payment.paginate(page: params[:page], per_page: 15)
+    end
+    
+    
     render 'payments/index'
   end
 

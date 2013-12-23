@@ -11,6 +11,6 @@ pt_br:
         card_number: Número do Cartão
         price: Preço
         dt_checkin: Entrada
-        dt_checkout: Saida
+        dt_checkout: Hora do Pagamento
         received_value: Valor Recebido
         tolerance: Tolerância

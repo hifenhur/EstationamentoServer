@@ -51,9 +51,9 @@ class Payment < ActiveRecord::Base
 		when :day
 			period = Time.now.at_beginning_of_day
 		when :week
-			period = 7.days.ago.at_beginning_of_day
+			period = Time.now.at_beginning_of_week
 		when :month		
-			period = 30.days.ago.at_beginning_of_day
+			period = Time.now.at_beginning_of_month
 		else
 			begin
 				
@@ -88,4 +88,32 @@ class Payment < ActiveRecord::Base
 		self.where('dt_checkin > ?', period).count
 	end
 
+
+	def self.search_by_query(params)
+		date_filter = if !params[:dt_checkin_gt].empty? || !params[:dt_checkin_lt].empty?
+			if !params[:dt_checkin_gt].empty? && !params[:dt_checkin_lt].empty?
+				"dt_checkin > '#{params[:dt_checkin_gt]}' and dt_checkin < '#{params[:dt_checkin_lt]}'"
+			elsif params[:dt_checkin_gt].empty?
+			 	"dt_checkin < '#{params[:dt_checkin_lt]}'"
+			else
+				"dt_checkin > '#{params[:dt_checkin_gt]}'"
+			end
+		else
+			nil
+		end
+		card_filter = if !params[:card_number].empty?
+			"card_number = '#{params[:card_number]}'"
+		else
+			nil
+		end
+
+		if !card_filter
+			self.where("#{date_filter}")	
+		elsif !date_filter
+			self.where("#{card_filter}")	
+		else
+			self.where("#{date_filter} and #{card_filter}")	
+		end
+		
+	end
 end

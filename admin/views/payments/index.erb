@@ -1,4 +1,26 @@
-<%= will_paginate @payments %>
+<div class="col-md-12">
+
+<form>
+    <div class="row">
+    <div class="col-md-2">
+      <%= label_tag :card_number, caption: (t 'card_number') %><br>
+      <%= text_field_tag 'q[card_number]', placeholder: "#{t 'card_number'}" , class: 'search-input'%><br>
+    </div>
+    <div class="col-md-3">
+      <%= label_tag :dt_checkin, caption: (t 'dt_checkin') %><br>
+      
+      <%= text_field_tag 'q[dt_checkin_gt]', placeholder: "#{t 'dt_checkin'}", type: 'date' , class: 'search-input'%><br>
+      até<br>
+      <%= text_field_tag 'q[dt_checkin_lt]', placeholder: "#{t 'dt_checkin'}", type: 'date' , class: 'search-input'%><br>
+    </div>
+    <br>
+    </div>
+    <%= submit_tag "Filtrar", class: 'btn btn-primary'%>
+  
+</form>
+</div>
+<br>
+<br>
 <div class=tabs-content>
   <table id=list class="table table-striped table-hover table-condensed">
     <thead>
@@ -36,4 +58,11 @@
     </tbody>
     
   </table>
+  <%= will_paginate @payments %>
 </div>
+
+<style type="text/css">
+.search-input{
+  width: 100%;
+}
+</style>
