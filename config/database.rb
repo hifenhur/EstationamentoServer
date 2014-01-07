@@ -19,7 +19,7 @@ ActiveRecord::Base.configurations[:development] = {
   :database => 'bd_estacionamento',
   :username => 'skia',
   :password => 'skia123',
-  :host     => '172.16.1.19',
+  :host     => '192.241.181.57',
 
 }
 
