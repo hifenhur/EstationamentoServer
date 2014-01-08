@@ -1,13 +1,13 @@
+  <form class="pull-right"> 
+    <input type="button" value="Imprimir" onClick="window.print()" class="btn btn-success" /> 
+  </form> 
 
   <table class="table table-hover table-bordered">
     <tr>
-      <h2>Utilização</h2>
+      <th>Data</th>
     </tr>
     <tr>
-      <th>Dia</th>
-    </tr>
-    <tr>
-      <td><%= @day_use %></td>
+      <td><%= "relatório do dia #{l @dt_checkin_gt, format: :ultra_short} até o dia #{l @dt_checkin_lt.yesterday, format: :ultra_short}" %></td>
     </tr>
   </table>
   <table class="table table-hover table-bordered">
@@ -15,27 +15,45 @@
       <h2>Rendimento</h2>
     </tr>
     <tr>
-      <th>Dia</th>
-    </tr>
-    <tr>
-      <th><h2><%= number_to_currency(@day_trade) %></h2></th>
+      <th><h2><%= number_to_currency @amount %></h2></th>
     </tr>
   </table>
   <br>
   <table class="table table-hover table-bordered">
     <tr>
-      <h2>Cartões Utilizados</h2>
-    </tr>
-     <tr>
-      <th colspan="2">Dia</th>
-      
+      <h2>Entrada/Saida</h2>
     </tr>
     <tr>
-        <td>Pós</td>
-        <td>Pré</td>
+        <td>Com Cartão</td>
+        <td>Sem Cartão</td>
+        <td>Total</td>
     </tr>
     <tr>
-        <td><%= @day_card_type2 %></td>
-        <td><%= @day_card_type1 %></td>
+        <td><%= @m_card %></td>
+        <td><%= @nm_card %></td>
+        <td><%= @movement %></td>
     </tr>
   </table>
+
+
+  <h1>Histórico</h1>
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th><%= t('card_number') %></th>
+        <th><%= t('entry_time') %></th>
+        <th><%= t('exit_time') %></th>
+        <th><%= t('utilized_time') %></th>
+        <th><%= t('price') %></th>
+        
+      </tr>
+      <% @history.each do |history| %>
+      <tr>
+        <td><%= history.card_number %></td>
+        <td><%= l history.dt_checkin, format: :short if history.dt_checkin %></td>
+        <td><%= l history.dt_checkout, format: :short if history.dt_checkout %></td>
+        <td><%= history.utilized_time_in_hours %></td>
+        <td><%= number_to_currency history.price %></td>
+      </tr>
+      <% end %>
+    </table>
+

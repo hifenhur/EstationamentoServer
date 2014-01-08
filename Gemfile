@@ -32,7 +32,7 @@ gem 'wiselinks'
 gem 'groupdate'
 gem 'will_paginate', '~> 3.0.pre4', :git => 'git://github.com/mislav/will_paginate.git'
 gem 'mask_validator'
-
+gem 'pdfkit'
 # Or Padrino Edge
 
 #gem 'searchlogic'

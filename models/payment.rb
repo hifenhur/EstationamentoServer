@@ -17,6 +17,7 @@
 
 class Payment < ActiveRecord::Base
 	self.table_name = "checkout_payments"
+	default_scope ->{order('dt_checkin desc')}
 	
 	def to_s
 		id	
@@ -89,31 +90,48 @@ class Payment < ActiveRecord::Base
 	end
 
 
-	def self.search_by_query(params)
-		date_filter = if !params[:dt_checkin_gt].empty? || !params[:dt_checkin_lt].empty?
-			if !params[:dt_checkin_gt].empty? && !params[:dt_checkin_lt].empty?
+	def self.search_by_query(params = {})
+		date_filter = if params[:dt_checkin_gt] || params[:dt_checkin_lt]
+			if params[:dt_checkin_gt] && params[:dt_checkin_lt]
 				"dt_checkin > '#{params[:dt_checkin_gt]}' and dt_checkin < '#{params[:dt_checkin_lt]}'"
-			elsif params[:dt_checkin_gt].empty?
-			 	"dt_checkin < '#{params[:dt_checkin_lt]}'"
+			elsif params[:dt_checkin_gt]
+			 	"dt_checkin > '#{params[:dt_checkin_gt]}'"
 			else
-				"dt_checkin > '#{params[:dt_checkin_gt]}'"
+				"dt_checkin < '#{params[:dt_checkin_lt]}'"
 			end
 		else
 			nil
 		end
-		card_filter = if !params[:card_number].empty?
+		card_filter = if params[:card_number]
 			"card_number = '#{params[:card_number]}'"
 		else
 			nil
 		end
 
 		if !card_filter
-			self.where("#{date_filter}")	
+			@history = self.where("#{date_filter}")	
 		elsif !date_filter
-			self.where("#{card_filter}")	
+			@history = self.where("#{card_filter}")	
 		else
-			self.where("#{date_filter} and #{card_filter}")	
+			@history = self.where("#{date_filter} and #{card_filter}")	
 		end
-		
+
+		#guardando dados de total utilizado
+		@amount = 0
+
+		@history.each do |h|
+   			@amount += h.price
+		end
+
+		#quantidade de utilizações
+		@movement = @history.count
+
+		#quantidade de pagamentos avulsos e mensalistas
+		@m_card = @history.select{|h| h.card_number != "Pag. Avulso"}.count
+		@nm_card = @history.select{|h| h.card_number == "Pag. Avulso"}.count
+
+		return {history: @history, amount: @amount, movement: @movement, m_card: @m_card, nm_card: @nm_card}
+
+
 	end
 end

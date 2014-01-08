@@ -19,18 +19,22 @@
       </tr>
       <% end %>
     </table>
-    <%= will_paginate @histories %>
+    <% if params[:popup] != 'true' %>
+      <%= will_paginate @histories %>  
+    <% end %>
+    
   </div>
 
   <div class="col-md-6" style="border: 1px solid black;" id="home-table">
-    <!--
+    
     <div class="filter">
         <form action="/admin/datefilter" method="get" data-push="true" data-target="#catalog">
-            <input type="text" size="30" name="period" id="date">
-            <input type="submit" value="Find" name="commit" class="btn">
+            Do dia <input size="30" name="dt_checkin_gt" id="date" type="date" required="required">  Até dia
+            <input size="30" name="dt_checkin_lt" id="date" type="date" required="required">
+            <input type="submit"  class="btn btn-primary" value="Gerar Relatório" >
         </form>
     </div>
-  -->
+  
 
     <div id="catalog">
       <br>
@@ -94,6 +98,7 @@
             <td><%= @month_card_type1 %></td>
         </tr>
       </table>
+      <a href="javascript::void(0)" onclick="window.open(window.location.href+'?popup=true', 'Pagina', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=YES, TOP=0, LEFT=0, WIDTH=1024, HEIGHT=700');">Relatório</a>
     </div>
   </div>
 </div>

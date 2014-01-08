@@ -13,16 +13,26 @@ Estacionamento::Admin.controllers :base do
 	@day_use = Payment.movements_by_period :day
 	@week_use = Payment.movements_by_period :week
 	@month_use = Payment.movements_by_period :month
-  	@histories = Payment.order('dt_checkin desc').paginate(page: params[:page], per_page: 11)
+	if params[:popup] == 'true'
+		@histories = Payment.order('dt_checkin desc')
+	else
+		@histories = Payment.order('dt_checkin desc').paginate(page: params[:page], per_page: 11)
+	end
+  	
+  	
     render "base/index"
   end
 
   get :index, :map => "/datefilter" do
-  	@period = params[:period].to_date
-  	@day_card_type2 =ParkingHistory.use_by_type_and_period period, 2
-	@day_card_type1 =ParkingHistory.use_by_type_and_period period, 1
-	@day_trade = ParkingHistory.trade_by_period period
-	@day_use = ParkingHistory.movements_by_period period
-  	render "base/filtered_data"
+  	@dt_checkin_gt = params[:dt_checkin_gt].to_date.at_beginning_of_day
+  	@dt_checkin_lt = params[:dt_checkin_lt].to_date.tomorrow.at_beginning_of_day
+  	@search = Payment.search_by_query(dt_checkin_gt: @dt_checkin_gt, dt_checkin_lt: @dt_checkin_lt)
+	@history = @search[:history]
+	@amount = @search[:amount]
+	@movement = @search[:movement]
+	@m_card = @search[:m_card]
+	@nm_card = @search[:nm_card]
+	
+  	render "base/filtered_data", :layout => 'without_header'
   end
 end

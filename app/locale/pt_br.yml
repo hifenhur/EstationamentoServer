@@ -1,4 +1,5 @@
 pt_br:
+  price: 'Valor Pago'
   dt_checkin: 'Data de Entrada'
   card_number: Número do Cartão
   checkout_payments: Pagamentos
@@ -37,9 +38,11 @@ pt_br:
     formats:
       default: "%a %d %b %Y, %H:%M:%S %z"
       time: "%H:%M"
-      short: "%d %b %H:%M"
+      short: "%d/%b/%Y %H:%M"
+      ultra_short: "%d/%b/%Y"
       long: "%d %B %Y %H:%M"
       only_second: "%S"
+
 
       datetime:
         formats:
