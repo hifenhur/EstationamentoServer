@@ -44,6 +44,10 @@ module Estacionamento
     role.project_module :accounts, '/accounts'
     end
 
+    access_control.roles_for :monitor do |role|
+        role.project_module :parking_cost_histories, '/parking_cost_histories', as: 'Historico de Preço'
+    end
+
     # Custom error management 
     error(403) { @title = "Error 403"; render('errors/403', :layout => :error) }
     error(404) { @title = "Error 404"; render('errors/404', :layout => :error) }
