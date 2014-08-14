@@ -33,6 +33,7 @@ gem 'groupdate'
 gem 'will_paginate', '~> 3.0.pre4', :git => 'git://github.com/mislav/will_paginate.git'
 gem 'mask_validator'
 gem 'pdfkit'
+gem 'airbrake'
 # Or Padrino Edge
 
 #gem 'searchlogic'

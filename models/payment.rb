@@ -17,7 +17,7 @@
 
 class Payment < ActiveRecord::Base
 	self.table_name = "checkout_payments"
-	default_scope ->{order('dt_checkin desc')}
+	default_scope ->{order('dt_checkout desc')}
 	
 	def to_s
 		id	
@@ -67,37 +67,36 @@ class Payment < ActiveRecord::Base
 
 	def self.trade_by_period(period)
 		period = get_period(period)
-		total = 0
-		self.where('dt_checkin > ?', period).each do |h|
-   			total += h.price
-		end
+		
+		total = self.where('dt_checkout > ?', period).sum(:price)
+   			
 		return total
 	end
 
 	def self.use_by_type_and_period(period, type)
 		period = get_period(period)
 		if type == 1
-			self.where('dt_checkin > ? and card_number != ?', period, "Pag. Avulso").count
+			self.where('dt_checkout > ? and card_number != ?', period, "Pag. Avulso").count
 		else	
-			self.where('dt_checkin > ? and card_number = ?', period, "Pag. Avulso").count
+			self.where('dt_checkout > ? and card_number = ?', period, "Pag. Avulso").count
 		end
 		
 	end
 
 	def self.movements_by_period(period)
 		period = get_period(period)
-		self.where('dt_checkin > ?', period).count
+		self.where('dt_checkout > ?', period).count
 	end
 
 
 	def self.search_by_query(params = {})
-		date_filter = if params[:dt_checkin_gt] || params[:dt_checkin_lt]
-			if params[:dt_checkin_gt] && params[:dt_checkin_lt]
-				"dt_checkin > '#{params[:dt_checkin_gt]}' and dt_checkin < '#{params[:dt_checkin_lt]}'"
-			elsif params[:dt_checkin_gt]
-			 	"dt_checkin > '#{params[:dt_checkin_gt]}'"
+		date_filter = if params[:dt_checkout_gt] || params[:dt_checkout_lt]
+			if params[:dt_checkout_gt] && params[:dt_checkout_lt]
+				"dt_checkout > '#{params[:dt_checkout_gt]}' and dt_checkout < '#{params[:dt_checkout_lt]}'"
+			elsif params[:dt_checkout_gt]
+			 	"dt_checkout > '#{params[:dt_checkout_gt]}'"
 			else
-				"dt_checkin < '#{params[:dt_checkin_lt]}'"
+				"dt_checkout < '#{params[:dt_checkout_lt]}'"
 			end
 		else
 			nil

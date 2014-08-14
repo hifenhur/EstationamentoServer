@@ -18,6 +18,9 @@ GEM
     activesupport (3.2.15)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    airbrake (4.0.0)
+      builder
+      multi_json
     annotate (2.6.0)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -26,7 +29,6 @@ GEM
     builder (3.0.4)
     daemons (1.1.9)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
     groupdate (1.0.4)
       activerecord (>= 3.0.0)
@@ -109,6 +111,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (>= 3.1)
+  airbrake
   annotate
   bcrypt-ruby
   erubis (~> 2.7.0)

@@ -14,9 +14,9 @@ Estacionamento::Admin.controllers :base do
 	@week_use = Payment.movements_by_period :week
 	@month_use = Payment.movements_by_period :month
 	if params[:popup] == 'true'
-		@histories = Payment.order('dt_checkin desc')
+		@histories = Payment.order('dt_checkout desc')
 	else
-		@histories = Payment.order('dt_checkin desc').paginate(page: params[:page], per_page: 11)
+		@histories = Payment.order('dt_checkout desc').paginate(page: params[:page], per_page: 11)
 	end
   	
   	
@@ -24,9 +24,9 @@ Estacionamento::Admin.controllers :base do
   end
 
   get :index, :map => "/datefilter" do
-  	@dt_checkin_gt = params[:dt_checkin_gt].to_date.at_beginning_of_day
-  	@dt_checkin_lt = params[:dt_checkin_lt].to_date.tomorrow.at_beginning_of_day
-  	@search = Payment.search_by_query(dt_checkin_gt: @dt_checkin_gt, dt_checkin_lt: @dt_checkin_lt)
+  	@dt_checkout_gt = params[:dt_checkout_gt].to_date.at_beginning_of_day
+  	@dt_checkout_lt = params[:dt_checkout_lt].to_date.tomorrow.at_beginning_of_day
+  	@search = Payment.search_by_query(dt_checkout_gt: @dt_checkout_gt, dt_checkout_lt: @dt_checkout_lt)
 	@history = @search[:history]
 	@amount = @search[:amount]
 	@movement = @search[:movement]
