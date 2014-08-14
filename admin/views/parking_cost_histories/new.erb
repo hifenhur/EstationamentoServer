@@ -1,9 +1,0 @@
-<ul class="nav nav-tabs">
-  <li> <%= link_to tag_icon(:list, pat(:list)), url(:parking_cost_histories, :index) %></li>
-  <li class="active"> <%= link_to tag_icon(:plus, pat(:new)), url(:parking_cost_histories, :new) %></li>
-</ul>
-<div class="tabs-content">
-  <% form_for :parking_cost_history, url(:parking_cost_histories, :create), :class => 'form-horizontal' do |f| %>
-    <%= partial 'parking_cost_histories/form', :locals => { :f => f } %>
- <% end %>
-</div>
