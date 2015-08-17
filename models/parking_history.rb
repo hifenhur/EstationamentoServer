@@ -4,12 +4,14 @@
 # Table name: parking_histories
 #
 #  id                  :integer          not null, primary key
-#  date_time_reg       :datetime
+#  date_time_reg       :datetime         not null
 #  card_id             :integer          not null
 #  dt_time_in          :datetime         not null
 #  dt_time_out         :datetime
-#  parkingmeter_id_in  :integer          default(1)
-#  parkingmeter_id_out :integer          default(1)
+#  parkingmeter_id_in  :integer          not null
+#  parkingmeter_id_out :integer
+#  id_type_occurrence  :integer          not null
+#  nsu                 :string           not null
 #
 
 class ParkingHistory < ActiveRecord::Base

@@ -35,13 +35,15 @@ module Estacionamento
     end
 
     access_control.roles_for :admin do |role|
-    role.project_module :parking_cost_histories, '/parking_cost_histories', as: 'Historico de Preço'
-    role.project_module :enroll_cards, '/enroll_cards'
-    role.project_module :enroll_users, '/enroll_users'
-    role.project_module :parking_histories, '/parking_histories'
-    role.project_module :card_types, '/card_types'
-    role.project_module :checkout_payments, '/payments'
-    role.project_module :accounts, '/accounts'
+        role.project_module :parking_cost_histories, '/parking_cost_histories', as: 'Historico de Preço'
+        role.project_module :enroll_cards, '/enroll_cards'
+        role.project_module :enroll_users, '/enroll_users'
+        role.project_module :parking_histories, '/parking_histories'
+        role.project_module :card_types, '/card_types'
+        role.project_module :checkout_payments, '/payments'
+        role.project_module :accounts, '/accounts'
+        role.project_module :undo_payments, '/undo_payments'
+        role.project_module :users, '/users'
     end
 
     access_control.roles_for :monitor do |role|

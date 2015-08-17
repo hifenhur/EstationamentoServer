@@ -1,0 +1,8 @@
+pt_br:
+  models:
+    user:
+      name: Usuário
+      attributes:
+        name: Nome de Usuário
+        password: Senha
+        id_type_user: Tipo de Usuário

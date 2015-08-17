@@ -1,0 +1,65 @@
+<% error = @undo_payment.errors.include?(:id_payment) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :id_payment, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :id_payment, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:id_payment) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @undo_payment.errors.include?(:id_user_ins) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :id_user_ins, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :id_user_ins, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:id_user_ins) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @undo_payment.errors.include?(:obs_ins) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :obs_ins, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :obs_ins, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:obs_ins) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @undo_payment.errors.include?(:dt_ins) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :dt_ins, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :dt_ins, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:dt_ins) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @undo_payment.errors.include?(:id_user_auth) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :id_user_auth, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :id_user_auth, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:id_user_auth) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @undo_payment.errors.include?(:obs_auth) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :obs_auth, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :obs_auth, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:obs_auth) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @undo_payment.errors.include?(:dt_auth) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :dt_auth, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :dt_auth, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:dt_auth) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:undo_payments, :index), :class => 'btn btn-default' %>
+</div>

@@ -1,0 +1,12 @@
+pt_br:
+  models:
+    undo_payment:
+      name: Cancelamento
+      attributes:
+        id_payment: pagamento cancelado
+        id_user_ins: criado por
+        obs_ins: observação do criador
+        dt_ins: data de criação
+        id_user_auth: autorizado por
+        obs_auth: observação do autorizador
+        dt_auth: data da autorização

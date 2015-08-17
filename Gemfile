@@ -27,13 +27,13 @@ gem 'shoulda', :group => 'test'
 gem 'padrino', '0.11.4'
 gem 'pg'
 gem 'magic_encoding'
-gem 'annotate'
 gem 'wiselinks'
 gem 'groupdate'
 gem 'will_paginate', '~> 3.0.pre4', :git => 'git://github.com/mislav/will_paginate.git'
 gem 'mask_validator'
 gem 'pdfkit'
 gem 'airbrake'
+
 # Or Padrino Edge
 
 #gem 'searchlogic'

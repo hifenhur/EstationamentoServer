@@ -1,24 +1,28 @@
 # == Schema Information
 #
-# Table name: checkout_payments
+# Table name: payments
 #
-#  id             :integer          not null, primary key
-#  city           :string           not null
-#  address        :string           not null
-#  diff_hours     :string           not null
-#  diff_days      :integer          not null
-#  card_number    :string           not null
-#  price          :decimal(5, 2)    not null
-#  dt_checkin     :datetime         not null
-#  dt_checkout    :datetime         not null
-#  received_value :string           not null
-#  tolerance      :string           not null
+#  id                :integer          not null, primary key
+#  city              :text             not null
+#  address           :text             not null
+#  diff_hours        :text             not null
+#  diff_days         :integer          not null
+#  card_number       :text             not null
+#  price             :decimal(5, 2)    not null
+#  dt_checkin        :datetime
+#  dt_checkout       :datetime
+#  received_value    :text             not null
+#  tolerance         :text
+#  id_type_operation :integer
+#  dh_ins            :datetime
 #
 
 class Payment < ActiveRecord::Base
-	self.table_name = "checkout_payments"
-	default_scope ->{order('dt_checkout desc')}
 	
+	default_scope ->{where('id not in (?)', UndoPayment.pluck(:id_payment)).order('dt_checkout desc')}
+	
+	has_many :undo_payments, foreign_key: 'id_payment'
+
 	def to_s
 		id	
 	end
@@ -44,7 +48,7 @@ class Payment < ActiveRecord::Base
 	
 
 	def utilized_time
-		dt_checkout - dt_checkin
+		(dt_checkout - dt_checkin) if dt_checkout && dt_checkin
 	end
 
 	def self.get_period(period)

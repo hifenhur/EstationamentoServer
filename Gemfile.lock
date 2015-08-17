@@ -21,9 +21,6 @@ GEM
     airbrake (4.0.0)
       builder
       multi_json
-    annotate (2.6.0)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
     arel (3.0.3)
     bcrypt-ruby (3.1.2-x86-mingw32)
     builder (3.0.4)
@@ -112,7 +109,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 3.1)
   airbrake
-  annotate
   bcrypt-ruby
   erubis (~> 2.7.0)
   groupdate

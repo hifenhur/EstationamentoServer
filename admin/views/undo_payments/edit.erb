@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li> <%= link_to tag_icon(:list, pat(:list)), url(:undo_payments, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:undo_payments, :new) %></li>
+  <li class="active"> <%= link_to tag_icon(:edit, pat(:edit)), url(:undo_payments, :edit, :id => @undo_payment.id) %></li>
+</ul>
+<div class="tabs-content">
+  <% form_for :undo_payment, url(:undo_payments, :update, :id => @undo_payment.id), :method => :put, :class => 'form-horizontal' do |f| %>
+    <%= partial 'undo_payments/form', :locals => { :f => f } %>
+  <% end %>
+</div>
