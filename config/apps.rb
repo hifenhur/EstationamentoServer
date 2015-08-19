@@ -30,7 +30,7 @@ Padrino.configure_apps do
   # enable :sessions
   set :session_secret, 'c9b85c0e12ede77009b6de4322c4921c03019a4c13896d9af01f7e84efa8bdfe'
   set :protection, true
-  set :protect_from_csrf, true
+  set :protect_from_csrf, false
   set :encoding, 'UTF-8'
 end
 
